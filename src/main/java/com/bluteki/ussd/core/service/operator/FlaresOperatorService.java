@@ -22,9 +22,7 @@ public class FlaresOperatorService implements OperatorService {
         response.setReleaseSession(releaseSession);
         
         response.setOperatorSpecificParams(Map.of(
-            "Freeflow", "FC",
-            "charge", "Y",
-            "amount", "100"
+            "Freeflow", "FC"
         ));
         
         return response;
