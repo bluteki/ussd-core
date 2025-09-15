@@ -75,8 +75,10 @@ public abstract class BaseUssdProcessorService implements UssdProcessor {
     private CommonUssdResponse enhanceResponseWithOperatorParams(CommonUssdResponse response, CommonUssdRequest request) {
         OperatorService operatorService = getOperatorService(request.getOperator());
         CommonUssdResponse operatorResponse = operatorService.processRequest(request);
-        
-        response.setReleaseSession(operatorResponse.isReleaseSession());
+
+        if (!response.isReleaseSession()) {
+            response.setReleaseSession(operatorResponse.isReleaseSession());
+        }
         response.getOperatorSpecificParams().putAll(operatorResponse.getOperatorSpecificParams());
         
         return response;
