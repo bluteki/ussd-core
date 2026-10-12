@@ -1,4 +1,4 @@
 jdk:
   - openjdk17
 install:
-  - mvn -B install -DskipTests
+  - sdk install maven 3.9.9 && sdk use maven 3.9.9 && mvn -v && mvn -B install -DskipTests
