@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.bluteki</groupId>
         <artifactId>ussd-core-parent</artifactId>
-        <version>1.1.0</version>
+        <version>1.1.1</version>
     </parent>
 
     <artifactId>ussd-core-protocol</artifactId>

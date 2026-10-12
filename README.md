@@ -29,7 +29,7 @@ operadores.
 -   Spring Boot 3.2.0+
 -   Base de dados (H2, MySQL, PostgreSQL, etc.)
 
-## 🧩 Módulos (a partir da 1.1.0)
+## 🧩 Módulos (a partir da 1.1.1)
 
 | Módulo | Para quê | Dependências |
 |--------|----------|--------------|
@@ -44,11 +44,11 @@ Publicado no JitPack (repositório `https://jitpack.io`). Para quem só precisa 
 <dependency>
     <groupId>com.github.bluteki.ussd-core</groupId>
     <artifactId>ussd-core-protocol</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
 </dependency>
 ```
 
-Aplicações Spring Boot que usam as sessões JPA: `com.github.bluteki.ussd-core:ussd-core:1.1.0`.
+Aplicações Spring Boot que usam as sessões JPA: `com.github.bluteki.ussd-core:ussd-core:1.1.1`.
 
 Classes em `com.bluteki.ussd.protocol`:
 

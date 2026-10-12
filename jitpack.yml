@@ -1,4 +1,2 @@
 jdk:
   - openjdk17
-install:
-  - ./mvnw -B -q install -DskipTests
