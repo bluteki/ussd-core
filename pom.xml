@@ -11,17 +11,21 @@
     </parent>
 
     <groupId>com.bluteki</groupId>
-    <artifactId>ussd-core</artifactId>
-    <version>1.0.1</version>
-    <packaging>jar</packaging>
-    
-    <name>USSD Core Library</name>
-    <description>Core library for USSD applications</description>
+    <artifactId>ussd-core-parent</artifactId>
+    <version>1.1.0</version>
+    <packaging>pom</packaging>
+
+    <name>USSD Core (parent)</name>
+    <description>Bibliotecas USSD da Bluteki: protocolos das operadoras e base para aplicacoes Spring Boot</description>
+
+    <modules>
+        <module>ussd-core-protocol</module>
+        <module>ussd-core</module>
+    </modules>
 
     <properties>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jakarta.xml.version>3.0.0</jakarta.xml.version>
     </properties>
 
     <developers>
@@ -31,6 +35,7 @@
             <email>paulo.maculuve@bluteki.com</email>
         </developer>
     </developers>
+
     <distributionManagement>
         <repository>
             <id>github</id>
@@ -39,39 +44,13 @@
         </repository>
     </distributionManagement>
 
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.xml.bind</groupId>
-            <artifactId>jakarta.xml.bind-api</artifactId>
-            <version>${jakarta.xml.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.bluteki</groupId>
+                <artifactId>ussd-core-protocol</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

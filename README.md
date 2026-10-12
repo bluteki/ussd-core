@@ -29,6 +29,32 @@ operadores.
 -   Spring Boot 3.2.0+
 -   Base de dados (H2, MySQL, PostgreSQL, etc.)
 
+## 🧩 Módulos (a partir da 1.1.0)
+
+| Módulo | Para quê | Dependências |
+|--------|----------|--------------|
+| `ussd-core-protocol` | Ler e escrever os formatos das operadoras (Movitel, TruRoute, Flares) e normalizar códigos USSD | Só o JDK (+ `jakarta.xml.bind-api` para os DTOs antigos) |
+| `ussd-core` | Base para aplicações Spring Boot: sessões JPA, `BaseUssdProcessorService`, `OperatorService` | `ussd-core-protocol`, Spring Boot, JPA |
+
+As aplicações existentes continuam a depender só de `ussd-core`: os DTOs (`MovitelUssdRequest`, `TruRouteUssdRequest`, …) mantêm o mesmo pacote e chegam através de `ussd-core-protocol`.
+
+Para quem só precisa dos protocolos (como o USSD Studio):
+
+``` xml
+<dependency>
+    <groupId>com.bluteki</groupId>
+    <artifactId>ussd-core-protocol</artifactId>
+    <version>1.1.0</version>
+</dependency>
+```
+
+Classes em `com.bluteki.ussd.protocol`:
+
+- `MovitelProtocol` — `parse` (aceita `service_code` e `msg`, prefixos por declarar e `<br>` por fechar), `ack`, `menu` (XML válido, texto escapado, quebras de linha como `<br>`), `request`.
+- `TruRouteProtocol` — `parseXml`, `fromParams` (GET), `response`, `parseResponse`.
+- `FlaresProtocol` — `fromParams`, `response` (`FC`/`FB`), `parseResponse`.
+- `ServiceCodes` — `normalize("*612*777#") == "612*777"` e `matches` com sub-códigos.
+
 ## 🔧 Instalação
 
 ### Instalação 1/2: Adicione isto ao pom.xml do seu projecto:
