@@ -38,15 +38,17 @@ operadores.
 
 As aplicações existentes continuam a depender só de `ussd-core`: os DTOs (`MovitelUssdRequest`, `TruRouteUssdRequest`, …) mantêm o mesmo pacote e chegam através de `ussd-core-protocol`.
 
-Para quem só precisa dos protocolos (como o USSD Studio):
+Publicado no JitPack (repositório `https://jitpack.io`). Para quem só precisa dos protocolos (como o USSD Studio):
 
 ``` xml
 <dependency>
-    <groupId>com.bluteki</groupId>
+    <groupId>com.github.bluteki.ussd-core</groupId>
     <artifactId>ussd-core-protocol</artifactId>
     <version>1.1.0</version>
 </dependency>
 ```
+
+Aplicações Spring Boot que usam as sessões JPA: `com.github.bluteki.ussd-core:ussd-core:1.1.0`.
 
 Classes em `com.bluteki.ussd.protocol`:
 
